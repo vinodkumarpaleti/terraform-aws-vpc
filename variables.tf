@@ -10,7 +10,12 @@ variable "enable_dns_support" {
   default = true
 }
 
-variable "tags" {
-    default = {} # this means tags is optional
-    type = map
+variable "common_tags" {
+  default = {} # this means tags is optional
+  type = map
+}
+
+variable "vpc_tags" {
+  default = {} # this means tags is optional
+  type = map
 }
