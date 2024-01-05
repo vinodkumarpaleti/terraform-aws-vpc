@@ -3,7 +3,7 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support = var.enable_dns_support
 
-    tags = merge(
+  tags = merge(
     var.common_tags,
     var.vpc_tags
   )
@@ -16,7 +16,6 @@ resource "aws_internet_gateway" "main" {
     var.common_tags,
     var.igw_tags
   )
-  
 }
 
 resource "aws_subnet" "public" {
@@ -113,3 +112,5 @@ resource "aws_route_table_association" "database" {
   subnet_id      = element(aws_subnet.database[*].id, count.index)
   route_table_id = aws_route_table.database.id
 }
+
+
